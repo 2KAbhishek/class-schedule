@@ -33,6 +33,10 @@ public class App {
             boolean found = false;
             System.out.print("Enter course title: ");
             String title = scanner.nextLine();
+            if (title.equalsIgnoreCase("quit") || title.equalsIgnoreCase("exit")) {
+                break;
+            }
+
             for (Course course : courseList) {
                 if (course.getTitle().equals(title)) {
                     found = true;
