@@ -94,6 +94,17 @@ public class Course {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Course Details:\n" +
+                "Title: " + title + "\n" +
+                "Registration Number: " + regNum + "\n" +
+                "Section: " + section + "\n" +
+                "Units: " + units + "\n" +
+                "Capacity: " + capacity + "\n" +
+                "Instructor: " + instructor + "\n";
+    }
+
     public String getTitle() {
         return title;
     }
