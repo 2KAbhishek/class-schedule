@@ -9,6 +9,22 @@ public class App {
         buildScheduleOfClasses(courseList);
         viewScheduleOfClasses(courseList);
         viewCourseSections(courseList);
+        enrollACourse(courseList);
+    }
+
+    private static void enrollACourse(Course[] courseList) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the course number: ");
+        int courseNum = scanner.nextInt();
+        for (Course course : courseList) {
+            if (course.getRegNum() == courseNum) {
+                if (course.enroll()) {
+                    System.out.println("Enrolled in course " + courseNum);
+                } else {
+                    System.out.println("Course " + courseNum + " is full");
+                }
+            }
+        }
     }
 
     private static void viewCourseSections(Course[] courseList) {
