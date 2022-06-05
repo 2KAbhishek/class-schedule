@@ -1,22 +1,34 @@
 public class Course {
-    private String title;
-    private String regNum;
-    private String instructor;
-    private float units;
-    private String section;
-    private int capacity;
+    public static final String TITLE_CONST = "TBD";
+    public static final int REGNO_CONST = 0;
+    public static final String SECTION_CONST = "0A";
+    public static final double UNITS_CONST = 4;
+    public static final int CAPACITY_CONST = 30;
+    public static final String INSTRUCTOR_CONST = "Staff";
 
-    public Course(String title, String regNum, String instructor, float units, String section, int capacity) {
-        this.title = title;
-        this.regNum = regNum;
-        this.instructor = instructor;
-        this.units = units;
-        this.section = section;
-        this.capacity = capacity;
-    }
+    private String title;
+    private int regNum;
+    private String section;
+    private double units;
+    private int capacity;
+    private String instructor;
 
     public Course() {
-        super();
+        this.title = TITLE_CONST;
+        this.regNum = REGNO_CONST;
+        this.section = SECTION_CONST;
+        this.units = UNITS_CONST;
+        this.capacity = CAPACITY_CONST;
+        this.instructor = INSTRUCTOR_CONST;
+    }
+
+    public Course(String title, int regNum, String section, double units, int capacity, String instructor) {
+        this.title = title;
+        this.regNum = regNum;
+        this.section = section;
+        this.units = units;
+        this.capacity = capacity;
+        this.instructor = instructor;
     }
 
     public String getTitle() {
@@ -27,28 +39,12 @@ public class Course {
         this.title = title;
     }
 
-    public String getRegNum() {
+    public int getRegNum() {
         return regNum;
     }
 
-    public void setRegNum(String regNum) {
+    public void setRegNum(int regNum) {
         this.regNum = regNum;
-    }
-
-    public String getInstructor() {
-        return instructor;
-    }
-
-    public void setInstructor(String instructor) {
-        this.instructor = instructor;
-    }
-
-    public float getUnits() {
-        return units;
-    }
-
-    public void setUnits(float units) {
-        this.units = units;
     }
 
     public String getSection() {
@@ -59,6 +55,14 @@ public class Course {
         this.section = section;
     }
 
+    public double getUnits() {
+        return units;
+    }
+
+    public void setUnits(double units) {
+        this.units = units;
+    }
+
     public int getCapacity() {
         return capacity;
     }
@@ -67,4 +71,11 @@ public class Course {
         this.capacity = capacity;
     }
 
+    public String getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(String instructor) {
+        this.instructor = instructor;
+    }
 }
