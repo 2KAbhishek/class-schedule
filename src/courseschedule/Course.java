@@ -1,3 +1,4 @@
+package courseschedule;
 public class Course {
     public static final String TITLE_CONST = "TBD";
     public static final int REGNO_CONST = 0;
