@@ -32,6 +32,19 @@ public class Course {
         this.instructor = instructor;
     }
 
+    public boolean enroll() {
+        if (this.capacity > 0) {
+            this.capacity--;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isFull() {
+        return this.capacity <= 0;
+    }
+
     public String getTitle() {
         return title;
     }
