@@ -1,4 +1,5 @@
 package courseschedule;
+
 public class Course {
     public static final String TITLE_CONST = "TBD";
     public static final int REGNO_CONST = 0;
@@ -43,6 +44,54 @@ public class Course {
 
     public boolean isFull() {
         return this.capacity <= 0;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + capacity;
+        result = prime * result + ((instructor == null) ? 0 : instructor.hashCode());
+        result = prime * result + regNum;
+        result = prime * result + ((section == null) ? 0 : section.hashCode());
+        result = prime * result + ((title == null) ? 0 : title.hashCode());
+        long temp;
+        temp = Double.doubleToLongBits(units);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Course other = (Course) obj;
+        if (capacity != other.capacity)
+            return false;
+        if (instructor == null) {
+            if (other.instructor != null)
+                return false;
+        } else if (!instructor.equals(other.instructor))
+            return false;
+        if (regNum != other.regNum)
+            return false;
+        if (section == null) {
+            if (other.section != null)
+                return false;
+        } else if (!section.equals(other.section))
+            return false;
+        if (title == null) {
+            if (other.title != null)
+                return false;
+        } else if (!title.equals(other.title))
+            return false;
+        if (Double.doubleToLongBits(units) != Double.doubleToLongBits(other.units))
+            return false;
+        return true;
     }
 
     public String getTitle() {
