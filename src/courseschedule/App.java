@@ -1,10 +1,33 @@
 package courseschedule;
+
+import java.util.Scanner;
+
 public class App {
     private static final int NUM_COURSES = 12;
     public static void main(String[] args) {
         Course[] courseList = new Course[NUM_COURSES];
         buildScheduleOfClasses(courseList);
         viewScheduleOfClasses(courseList);
+        viewCourseSections(courseList);
+    }
+
+    private static void viewCourseSections(Course[] courseList) {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            boolean found = false;
+            System.out.print("Enter course title: ");
+            String title = scanner.nextLine();
+            for (Course course : courseList) {
+                if (course.getTitle().equals(title)) {
+                    found = true;
+                    if (course.isFull())
+                        System.out.println("Course is full");
+                    System.out.println("Course sections: " + course.getSection());
+                }
+            }
+            if (!found)
+                System.out.println("Sorry, Course not found");
+        }
     }
 
     private static void viewScheduleOfClasses(Course[] courseList) {
@@ -34,6 +57,5 @@ public class App {
                 courseList[i] = new Course(titles[i], regNums[i], sections[i], units[i], capacities[i], instructors[i]);
             }
         }
-
     }
 }
